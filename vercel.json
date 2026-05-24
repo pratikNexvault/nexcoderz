@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/nexforge",
+      "destination": "/adminpanel",
+      "permanent": true
+    },
+    {
+      "source": "/adminlogin",
+      "destination": "/adminpanel",
+      "permanent": true
+    },
+    {
+      "source": "/admin",
+      "destination": "/adminpanel",
+      "permanent": true
+    }
+  ],
+  "headers": [
+    {
+      "source": "/adminpanel",
+      "headers": [
+        { "key": "X-Robots-Tag",          "value": "noindex, nofollow" },
+        { "key": "X-Frame-Options",        "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Cache-Control",          "value": "no-store, no-cache, must-revalidate" }
+      ]
+    }
+  ]
+}
