@@ -1,0 +1,120 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    {
+      "src": "/adminpanel",
+      "dest": "/console.html",
+      "status": 200
+    },
+    {
+      "src": "/adminpanel/",
+      "dest": "/console.html",
+      "status": 200
+    },
+    {
+      "src": "/nexforge",
+      "status": 301,
+      "headers": {
+        "Location": "/adminpanel"
+      }
+    },
+    {
+      "src": "/nexforge/",
+      "status": 301,
+      "headers": {
+        "Location": "/adminpanel"
+      }
+    },
+    {
+      "src": "/adminlog0",
+      "status": 301,
+      "headers": {
+        "Location": "/adminpanel"
+      }
+    },
+    {
+      "src": "/adminlog0/",
+      "status": 301,
+      "headers": {
+        "Location": "/adminpanel"
+      }
+    },
+    {
+      "src": "/console.html",
+      "status": 301,
+      "headers": {
+        "Location": "/adminpanel"
+      }
+    },
+    {
+      "src": "/console",
+      "status": 301,
+      "headers": {
+        "Location": "/adminpanel"
+      }
+    },
+    {
+      "src": "^/$",
+      "dest": "/index.html",
+      "status": 200
+    },
+    {
+      "src": "/index",
+      "dest": "/index.html",
+      "status": 200
+    },
+    {
+      "src": "^/([^.]+)$",
+      "dest": "/$1.html",
+      "status": 200
+    },
+    {
+      "src": "^/([^.]+)/$",
+      "dest": "/$1.html",
+      "status": 200
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "status": 404,
+      "dest": "/404.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/adminpanel",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "no-referrer" },
+        { "key": "Cache-Control", "value": "no-store, no-cache, must-revalidate" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    },
+    {
+      "source": "/static/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    },
+    {
+      "source": "/(.*\\.js|.*\\.css|.*\\.woff2?|.*\\.png|.*\\.jpg|.*\\.svg|.*\\.ico)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=86400, stale-while-revalidate=604800" }
+      ]
+    }
+  ]
+}
