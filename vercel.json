@@ -1,0 +1,78 @@
+{
+  "version": 2,
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "routes": [
+    {
+      "src": "/adminpanel",
+      "dest": "/nexforge.html",
+      "status": 200
+    },
+    {
+      "src": "/adminpanel/",
+      "dest": "/nexforge.html",
+      "status": 200
+    },
+    {
+      "src": "/nexforge",
+      "status": 301,
+      "headers": {
+        "Location": "/adminpanel"
+      }
+    },
+    {
+      "src": "/nexforge/",
+      "status": 301,
+      "headers": {
+        "Location": "/adminpanel"
+      }
+    },
+    {
+      "src": "/nexforge.html",
+      "status": 301,
+      "headers": {
+        "Location": "/adminpanel"
+      }
+    },
+    {
+      "src": "/adminlogin",
+      "status": 301,
+      "headers": {
+        "Location": "/adminpanel"
+      }
+    },
+    {
+      "src": "^/$",
+      "dest": "/index.html",
+      "status": 200
+    },
+    {
+      "handle": "filesystem"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html",
+      "status": 200
+    }
+  ],
+  "headers": [
+    {
+      "source": "/adminpanel",
+      "headers": [
+        { "key": "X-Robots-Tag",          "value": "noindex, nofollow" },
+        { "key": "X-Frame-Options",        "value": "DENY" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Cache-Control",          "value": "no-store, no-cache, must-revalidate" },
+        { "key": "Referrer-Policy",        "value": "no-referrer" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options",        "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy",        "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}
