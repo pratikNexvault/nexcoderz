@@ -2,57 +2,32 @@
   "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
-  "routes": [
+  "rewrites": [
     {
-      "src": "/adminpanel",
-      "dest": "/nexforge.html",
-      "status": 200
+      "source": "/adminpanel",
+      "destination": "/nexforge.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/nexforge",
+      "destination": "/adminpanel",
+      "permanent": true
     },
     {
-      "src": "/adminpanel/",
-      "dest": "/nexforge.html",
-      "status": 200
+      "source": "/nexforge.html",
+      "destination": "/adminpanel",
+      "permanent": true
     },
     {
-      "src": "/nexforge",
-      "status": 301,
-      "headers": {
-        "Location": "/adminpanel"
-      }
+      "source": "/adminlogin",
+      "destination": "/adminpanel",
+      "permanent": true
     },
     {
-      "src": "/nexforge/",
-      "status": 301,
-      "headers": {
-        "Location": "/adminpanel"
-      }
-    },
-    {
-      "src": "/nexforge.html",
-      "status": 301,
-      "headers": {
-        "Location": "/adminpanel"
-      }
-    },
-    {
-      "src": "/adminlogin",
-      "status": 301,
-      "headers": {
-        "Location": "/adminpanel"
-      }
-    },
-    {
-      "src": "^/$",
-      "dest": "/index.html",
-      "status": 200
-    },
-    {
-      "handle": "filesystem"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html",
-      "status": 200
+      "source": "/admin",
+      "destination": "/adminpanel",
+      "permanent": true
     }
   ],
   "headers": [
